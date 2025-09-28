@@ -25,7 +25,7 @@ const FileUploader = ({ onUploadSuccess, onUploadStart, onUploadError }) => {
         onUploadStart(); // Notify parent that upload is starting
 
         try {
-            const response = await axios.post('http://localhost:8000/uploadfile/', formData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/uploadfile/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

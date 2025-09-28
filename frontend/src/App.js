@@ -21,7 +21,7 @@ function App() {
     setError('');
     setSample(null);
     try {
-      const response = await axios.post('http://localhost:8000/sample/', params);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/sample/`, params);
       setSample(response.data);
       setLastParams(params); // Save the params for export
     } catch (err) {
@@ -40,7 +40,7 @@ function App() {
     setExporting(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:8000/export/', lastParams, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/export/`, lastParams, {
         responseType: 'blob', // Important for file downloads
       });
       // Create a link and trigger the download
